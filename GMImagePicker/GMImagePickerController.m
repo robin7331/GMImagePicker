@@ -86,7 +86,6 @@
     _navigationController.toolbar.translucent = YES;
     _navigationController.toolbar.barTintColor = _toolbarBarTintColor;
     _navigationController.toolbar.tintColor = _toolbarTintColor;
-    [(UIView*)[_navigationController.toolbar.subviews objectAtIndex:0] setAlpha:0.75f];  // URGH - I know!
     
     _navigationController.navigationBar.backgroundColor = _navigationBarBackgroundColor;
     _navigationController.navigationBar.tintColor = _navigationBarTintColor;
@@ -100,6 +99,11 @@
     _navigationController.navigationBar.titleTextAttributes = attributes;
     
     [self updateToolbar];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [(UIView*)[_navigationController.toolbar.subviews objectAtIndex:0] setAlpha:0.75f];  // URGH - I know!
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
